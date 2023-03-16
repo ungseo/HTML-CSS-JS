@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ <h1>마나서 반가워요. 아티클스의 그리팅 입니다.</h1>
+ <p>저는 {{foods.1}}를 가장 좋아합니다.</p>
+ <p>안녕하세요 제 이름은 {{info.name}} 입니다.</p>
+ <p>오늘 제가 먹을 과일은 {{pick}} 이며 이 과일은 {{pick|length}} 글자 입니다. </p>
+ <p>내일은 {{foods|join:' '}} 을(를) 다 먹을 예정 입니다. </p>
+ 
+ <p>
+    <ol>
+        {% for food in foods %}
+        <li>{{food}}</li>
+        {% endfor %}
+    </ol>
+ </p>
+ {% comment %} <a href="/articles/index/">인덱스로 이동</a> {% endcomment %}
+ <a href="/pages/hello/">인사페이지로 이동</a>
+ <a href="{% url 'articles:index' %}">아티클스의 인덱스로 이동</a>
+{% endblock content %}
